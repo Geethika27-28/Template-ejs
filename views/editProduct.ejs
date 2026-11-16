@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/style.css">
+<script src="/script.js" defer></script>
+</head>
+<body>
+    <h1>Edit Product</h1>
+
+    <form
+        action="/products/update/<%= product._id %>?_method=PUT"
+        method="POST"
+    >
+        <input
+            name="name"
+            value="<%= product.name %>"
+            placeholder="Product name"
+            required
+        >
+
+        <input
+            name="price"
+            type="number"
+            value="<%= product.price %>"
+            min="0"
+            required
+        >
+
+        <input
+            name="quantity"
+            type="number"
+            value="<%= product.quantity %>"
+            min="0"
+            required
+        >
+
+        <textarea name="description"><%= product.description %></textarea>
+
+        <button type="submit">Update Product</button>
+    </form>
+
+    <a href="/products">Back to Products</a>
+</body>
+</html>
